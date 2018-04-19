@@ -1,0 +1,60 @@
+<html>
+<head>
+  <script type='text/javascript' src='https://www.google.com/jsapi'></script>
+  <script type='text/javascript'>
+   google.load('visualization', '1', {'packages': ['geochart']});
+   google.setOnLoadCallback(drawRegionsMap);
+
+    function drawRegionsMap() {
+var stata_data=[
+['AT', 23.9],
+['BE', 25.8],
+['BG', 6.7],
+['CH', 37],
+['CY', 7.5],
+['CZ', 15.2],
+['DE', 28.6],
+['DK', 30.9],
+['EE', 6.7],
+['ES', 22.8],
+['FI', 28.5],
+['FR', 30.7],
+['GB', 36.2],
+['GR', 4.4],
+['HU', 5.1],
+['IE', 23.3],
+['NL', 23.5],
+['NO', 36.7],
+['PL', 8],
+['PT', 5.4],
+['SE', 44.2],
+['SI', 9.9]
+];
+      var data = new google.visualization.DataTable();
+      data.addColumn('string', 'Country');
+      data.addColumn('number', '(mean) sgnptit_new');
+      data.addRows(stata_data);
+      var options = { height: 347, width: 556, backgroundColor: 'white', colorAxis: { colors: ['green', 'red'] } , region: '150'};
+      var chart = new google.visualization.GeoChart(document.getElementById('mapContainer'));
+      chart.draw(data, options);
+  };
+  </script>
+<style type="text/css">
+#mainwrap
+{
+width: 556;
+margin: 0 0;
+}
+
+
+
+</style>
+</head>
+<body>
+<div id="mainwrap">
+<h2>Share of respondents who have signed a petition</h2>
+<div id='mapContainer'></div>
+
+</div>
+</body>
+</html>
